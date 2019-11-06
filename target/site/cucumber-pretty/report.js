@@ -20,74 +20,8 @@ formatter.feature({
     }
   ]
 });
-formatter.scenarioOutline({
-  "line": 33,
-  "name": "Verify user can only view the result by selected property class",
-  "description": "",
-  "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class",
-  "type": "scenario_outline",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 32,
-      "name": "@hotels_3"
-    }
-  ]
-});
-formatter.step({
-  "line": 34,
-  "name": "I am on default locations search result screen",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 35,
-  "name": "I select property \u003cstar\u003e star class",
-  "keyword": "When "
-});
-formatter.step({
-  "line": 36,
-  "name": "I verify system displays only selected star hotels on search result",
-  "keyword": "Then "
-});
-formatter.examples({
-  "line": 38,
-  "name": "",
-  "description": "",
-  "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class;",
-  "rows": [
-    {
-      "cells": [
-        "star"
-      ],
-      "line": 39,
-      "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class;;1"
-    },
-    {
-      "cells": [
-        "5-star"
-      ],
-      "line": 40,
-      "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class;;2"
-    },
-    {
-      "cells": [
-        "4-star"
-      ],
-      "line": 41,
-      "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class;;3"
-    },
-    {
-      "cells": [
-        "3-star"
-      ],
-      "line": 42,
-      "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class;;4"
-    }
-  ],
-  "keyword": "Examples"
-});
 formatter.before({
-  "duration": 5872026967,
+  "duration": 4433389464,
   "status": "passed"
 });
 formatter.background({
@@ -106,278 +40,73 @@ formatter.match({
   "location": "HotelsSD.navigateToHotelsHomePage()"
 });
 formatter.result({
-  "duration": 1196318840,
+  "duration": 872459287,
   "status": "passed"
 });
 formatter.scenario({
-  "line": 40,
-  "name": "Verify user can only view the result by selected property class",
+  "line": 25,
+  "name": "List of all of hotel within 10 miles radius of airport or downtown",
   "description": "",
-  "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class;;2",
+  "id": "hotels.com-search-feature;list-of-all-of-hotel-within-10-miles-radius-of-airport-or-downtown",
   "type": "scenario",
-  "keyword": "Scenario Outline",
+  "keyword": "Scenario",
   "tags": [
     {
-      "line": 1,
-      "name": "@regression"
-    },
-    {
-      "line": 1,
-      "name": "@hotels"
-    },
-    {
-      "line": 1,
-      "name": "@web"
-    },
-    {
-      "line": 32,
-      "name": "@hotels_3"
+      "line": 24,
+      "name": "@hotels_2"
     }
   ]
 });
 formatter.step({
-  "line": 34,
+  "line": 26,
   "name": "I am on default locations search result screen",
   "keyword": "Given "
 });
 formatter.step({
-  "line": 35,
-  "name": "I select property 5-star star class",
-  "matchedColumns": [
-    0
-  ],
+  "line": 27,
+  "name": "I select Landmark and set the max radius",
   "keyword": "When "
 });
 formatter.step({
-  "line": 36,
-  "name": "I verify system displays only selected star hotels on search result",
+  "line": 28,
+  "name": "I verify system displays all hotels within 2 miles radius of Landmark",
   "keyword": "Then "
+});
+formatter.step({
+  "line": 29,
+  "name": "I verify Hilton Hotel is within radius",
+  "keyword": "And "
 });
 formatter.match({
   "location": "HotelsSD.IamOnSearchResultScreen()"
 });
 formatter.result({
-  "duration": 11858963028,
+  "duration": 7882172580,
   "status": "passed"
 });
 formatter.match({
-  "arguments": [
-    {
-      "val": "5-star",
-      "offset": 18
-    }
-  ],
-  "location": "HotelsSD.selectStars(String)"
+  "location": "HotelsSD.setDistanceForHotel()"
 });
 formatter.result({
-  "duration": 4159131534,
+  "duration": 8756545800,
   "status": "passed"
 });
 formatter.match({
-  "location": "HotelsSD.filterResultsDisplayOnlyNStartsHotels()"
+  "location": "HotelsSD.verifyHotelsWithingOneMileRadiusOfDowntown()"
 });
 formatter.result({
-  "duration": 34156634,
+  "duration": 20327977124,
+  "status": "passed"
+});
+formatter.match({
+  "location": "HotelsSD.verifyHiltonHotelInListOfSearchResults()"
+});
+formatter.result({
+  "duration": 242764618,
   "status": "passed"
 });
 formatter.after({
-  "duration": 223078889,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 7032185810,
-  "status": "passed"
-});
-formatter.background({
-  "line": 4,
-  "name": "",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 5,
-  "name": "Hotels.com homepage is launched",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "HotelsSD.navigateToHotelsHomePage()"
-});
-formatter.result({
-  "duration": 1006068328,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 41,
-  "name": "Verify user can only view the result by selected property class",
-  "description": "",
-  "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class;;3",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@regression"
-    },
-    {
-      "line": 1,
-      "name": "@hotels"
-    },
-    {
-      "line": 1,
-      "name": "@web"
-    },
-    {
-      "line": 32,
-      "name": "@hotels_3"
-    }
-  ]
-});
-formatter.step({
-  "line": 34,
-  "name": "I am on default locations search result screen",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 35,
-  "name": "I select property 4-star star class",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 36,
-  "name": "I verify system displays only selected star hotels on search result",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "HotelsSD.IamOnSearchResultScreen()"
-});
-formatter.result({
-  "duration": 27843489050,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "4-star",
-      "offset": 18
-    }
-  ],
-  "location": "HotelsSD.selectStars(String)"
-});
-formatter.result({
-  "duration": 4147917453,
-  "status": "passed"
-});
-formatter.match({
-  "location": "HotelsSD.filterResultsDisplayOnlyNStartsHotels()"
-});
-formatter.result({
-  "duration": 169650174,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 193340939,
-  "status": "passed"
-});
-formatter.before({
-  "duration": 5527303660,
-  "status": "passed"
-});
-formatter.background({
-  "line": 4,
-  "name": "",
-  "description": "",
-  "type": "background",
-  "keyword": "Background"
-});
-formatter.step({
-  "line": 5,
-  "name": "Hotels.com homepage is launched",
-  "keyword": "Given "
-});
-formatter.match({
-  "location": "HotelsSD.navigateToHotelsHomePage()"
-});
-formatter.result({
-  "duration": 1007684954,
-  "status": "passed"
-});
-formatter.scenario({
-  "line": 42,
-  "name": "Verify user can only view the result by selected property class",
-  "description": "",
-  "id": "hotels.com-search-feature;verify-user-can-only-view-the-result-by-selected-property-class;;4",
-  "type": "scenario",
-  "keyword": "Scenario Outline",
-  "tags": [
-    {
-      "line": 1,
-      "name": "@regression"
-    },
-    {
-      "line": 1,
-      "name": "@hotels"
-    },
-    {
-      "line": 1,
-      "name": "@web"
-    },
-    {
-      "line": 32,
-      "name": "@hotels_3"
-    }
-  ]
-});
-formatter.step({
-  "line": 34,
-  "name": "I am on default locations search result screen",
-  "keyword": "Given "
-});
-formatter.step({
-  "line": 35,
-  "name": "I select property 3-star star class",
-  "matchedColumns": [
-    0
-  ],
-  "keyword": "When "
-});
-formatter.step({
-  "line": 36,
-  "name": "I verify system displays only selected star hotels on search result",
-  "keyword": "Then "
-});
-formatter.match({
-  "location": "HotelsSD.IamOnSearchResultScreen()"
-});
-formatter.result({
-  "duration": 9975766355,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "3-star",
-      "offset": 18
-    }
-  ],
-  "location": "HotelsSD.selectStars(String)"
-});
-formatter.result({
-  "duration": 4144063596,
-  "status": "passed"
-});
-formatter.match({
-  "location": "HotelsSD.filterResultsDisplayOnlyNStartsHotels()"
-});
-formatter.result({
-  "duration": 170854102,
-  "status": "passed"
-});
-formatter.after({
-  "duration": 163858803,
+  "duration": 200773800,
   "status": "passed"
 });
 });

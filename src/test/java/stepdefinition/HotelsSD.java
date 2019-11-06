@@ -10,20 +10,19 @@ import org.testng.Assert;
 public class HotelsSD {
     private HotelsHomePage homePage = new HotelsHomePage();
     private HotelsSearchResultPage searchResultPage = new HotelsSearchResultPage();
-    public int room;
 
     @Given("^Hotels.com homepage is launched$")
     public void navigateToHotelsHomePage() throws InterruptedException {
-        Assert.assertEquals(SharedSD.getDriver().getTitle(), "Hotels.com - Deals & Discounts for Hotel Reservations from Luxury Hotels to Budget Accommodations",
-                "Incorrect homepage");
-        Thread.sleep(1000);
+        homePage.closeWidgetOverlay();
+        Assert.assertEquals(SharedSD.getDriver().getTitle(), "Hotels.com - Deals & Discounts for " +
+                        "Hotel Reservations from Luxury Hotels to Budget Accommodations", "Incorrect homepage");
+        Thread.sleep(500);
     }
 
     @When("I select (.+) from select_rooms room dropdown")
     public void selectRoomFromRoomsDropDown(String room) throws InterruptedException {
-        homePage.clickOnRoomsDropDown();
-        Thread.sleep(1000);
         homePage.selectRoomFromRoomsDropDown(room);
+        Thread.sleep(1000);
     }
 
     @Then("^I verify (.+) number_of_room_dropdown is displayed$")
@@ -35,42 +34,48 @@ public class HotelsSD {
         }
     }
 
-
-
     @Given("^I am on default locations search result screen$")
     public void IamOnSearchResultScreen() throws InterruptedException {
         homePage.enterDesiredLocation();
         homePage.clickOnSearchButton();
     }
 
-    @Then("^I verify system displays all hotels within 10 miles radius of airport$")
-    public void verifyHotelsWithingOneMileRadiusOfDowntown() {
+    @When("^I select Landmark and set the max radius$")
+    public void setDistanceForHotel() throws InterruptedException {
+        searchResultPage.selectDistanceLocation();
+    }
 
+    @Then("^I verify system displays all hotels within 2 miles radius of Landmark$")
+    public void verifyHotelsWithingOneMileRadiusOfDowntown() throws InterruptedException {
+        searchResultPage.scrollSlowMotion();
+        Assert.assertTrue(searchResultPage.findAllMiles(), "Some hotels are not within the desired mile radius");
     }
 
     @Then("^I verify Hilton Hotel is within radius$")
     public void verifyHiltonHotelInListOfSearchResults() {
-
+        Assert.assertTrue(searchResultPage.findAllHotelsOnPage(), "Hilton is not in the list of Hotels");
     }
 
     @When("^I select property (.+) star class$")
     public void selectStars(String star) throws InterruptedException {
         switch (star) {
-            case "5-star":
+            case "5":
                 searchResultPage.clickOnFiveStarCheckBox();
                 break;
-            case "4-star":
+            case "4":
                 searchResultPage.clickOnFourStarCheckBox();
                 break;
-            case "3-star":
+            case "3":
                 searchResultPage.clickOnThreeRatingCheckBox();
                 break;
         }
     }
 
-    @Then("^I verify system displays only selected star hotels on search result$")
-    public void filterResultsDisplayOnlyNStartsHotels() {
-        searchResultPage.findStarsInResults();
+    @Then("^I verify system displays only selected (.+) hotels on search result$")
+    public void filterResultsDisplayOnlyNStartsHotels(int star) throws InterruptedException {
+        searchResultPage.scrollSlowMotion();
+        //searchResultPage.dynamicScrollTillEndOfSearResult();
+        Assert.assertTrue(searchResultPage.findStarsInResults(star),  "Not match" );;
 
     }
 

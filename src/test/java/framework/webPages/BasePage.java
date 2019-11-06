@@ -1,6 +1,7 @@
 package framework.webPages;
 
 import com.google.common.base.Function;
+import org.apache.commons.codec.digest.Sha2Crypt;
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Select;
@@ -140,6 +141,24 @@ public class BasePage {
 				}
 				lastHeight = newHeight;
 			}
+	}
+
+	public  void scrollUntilVisibleElement(By locator) throws InterruptedException {
+
+		WebElement element = SharedSD.getDriver().findElement(locator);
+		((JavascriptExecutor) SharedSD.getDriver()).executeScript("arguments[0].scrollIntoView(true);", element);
+		Thread.sleep(2000);
+	}
+
+	public void slowScroll() throws InterruptedException {
+		JavascriptExecutor jse = (JavascriptExecutor)SharedSD.getDriver();
+		for (int second = 0;; second++) {
+			if(second >=10){
+				break;
+			}
+			jse.executeScript("window.scrollBy(0,800)", ""); //y value '800' can be altered
+			Thread.sleep(2000);
+		}
 	}
 
 }
